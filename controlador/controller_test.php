@@ -5,6 +5,8 @@ function orange (){
 function redline (){
     $soso = 322;
 }
+$you = 100;
+$me = 110;
 
 if($you and $me){
     $me.happy('S2');
