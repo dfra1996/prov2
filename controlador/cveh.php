@@ -148,7 +148,7 @@ function insdatos($idveh,$pg, $arc){
 		$txt .= '<input type="text" name="color" class="form-control" required maxlength="25"';
 		if($idveh AND $dveh) $txt .= ' value="'.$dveh[0]['color'].'"';
 		$txt .= '>';
-		$txt .= '<label class="m-0 font-weight-bold text-primary">Tipo de servicio</label>';
+		/*$txt .= '<label class="m-0 font-weight-bold text-primary">Tipo de servicio</label>';
 		if ($dttser){
 			$txt .= '<select name ="tiposer" class="form-control">';
 			foreach ($dttser as $dt) {
@@ -159,7 +159,7 @@ function insdatos($idveh,$pg, $arc){
 				$txt .= '</option>';
 			}
 			$txt .= '</select>';
-		}
+		}*/
 		$txt .= '<label class="m-0 font-weight-bold text-primary">Certificacion Dielectrica</label>';
 		$txt .= '<input type="date" name="certdi" id="dacert" class="form-control"';
 		if($idveh AND $dveh) $txt .= 'value="'.$dveh[0]['certdi'].'"';

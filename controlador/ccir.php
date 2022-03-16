@@ -58,15 +58,15 @@ function insdatos($idcir,$pg,$arc){
 			if(!$idcir) $txt .= 'required';
 			$txt .= '>';
 				$txt .= '<option value="">Zona</option>';
-			if($dtzon){
+			/*if($dtzon){
 				foreach ($dtzon as $f) {
 					$txt .= '<option value="'.$f['idzon'].'"';
 					if($dtcir[0]['zid'] == $f['idzon']) $txt .= ' selected ';
 					$txt .= '>'.$f['nomzon'].'</option>';
 				}
-			}
+			}*/
 			$txt .= '</select>';
-			$txt .= '<div id="reloadzona">';
+			/*$txt .= '<div id="reloadzona">';
 				$txt .= '<label>Municipio</label>';
 				$txt .= '<select name="idzon" class="form-control" required>';
 					$txt .= '<option value="">Seleccione Zona</option>';
@@ -78,7 +78,7 @@ function insdatos($idcir,$pg,$arc){
 						}
 					}
 				$txt .= '</select>';
-			$txt .= '</div>';
+			$txt .= '</div>';*/
 			$txt .= '<label>Nombre del Circuito</label>';
 			$txt .= '<input type="text" class="form-control" name="nomcir"';
 			if($idcir AND $dtcir) $txt .= ' value="'.$dtcir[0]['nomcir'].'"';

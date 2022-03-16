@@ -56,7 +56,7 @@ function insdatos($idzon,$pg,$arc){
 				$txt .= '<input type="text" name="idzon" readonly value="'.$idzon.'" class="form-control" />';
 			}
 			$txt .= '<label>Zona</label>';
-			if($dtzon){
+			/*if($dtzon){
 			$txt .= '<select name="depzon" class="form-control" required>';
 				$txt .= '<option value="">Seleccione la Zona</option>';
 				foreach ($dtzon as $f) {
@@ -64,7 +64,7 @@ function insdatos($idzon,$pg,$arc){
 					if($z[0]['id']==$f['idzon']) $txt .= ' selected ';
 					$txt .= '>'.$f['nomzon'].'</option>';
 				}
-			}
+			}*/
 			$txt .= '</select>';
 			$txt .= '<label>Municipio</label>';
 			$txt .= '<input type="text" class="form-control" name="nomzon"';
