@@ -53,7 +53,6 @@ function vayuda($nom, $msn){
     return $txt;
 }
 function velim ($id, $msn,$pg, $arc, $op,$nom){
-
 $txt = '';
 $txt .= '<a data-bs-toggle="modal" href="" data-bs-target="#myModale'.$id.'" title="Eliminar">';
         $txt .= '<i class="fas fa-trash-alt fa-2x"></i>';
