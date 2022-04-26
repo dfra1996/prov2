@@ -20,7 +20,8 @@ function mosdatos($idrec,$pg, $arc){
 		$txt .= '<div class="d-flex justify-content-center">';
 		 	$txt .= vayuda("Nuevo Preoperacional", "Esperando mensaje...");
 		 	$txt .= vpqr($pg);	
-		$txt .= '</div>';		$txt .= '<div class="card-header py-3">';
+		$txt .= '</div>';
+		$txt .= '<div class="card-header py-3">';
 			$txt .= '<h6 class="m-0 font-weight-bold text-primary">Recolección</h6>';
 		$txt .= '</div>';
 

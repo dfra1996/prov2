@@ -54,89 +54,53 @@ function recolectar($idrec,$pg,$arc){
 	$mrev = new mrec();
 	$dtrec = $mrev->reco2();
 	$txt = '';
+
 	$txt .= '<div class="container-fluid">';
-		$txt .= '<div class="d-flex justify-content-center">';
-		 	$txt .= vayuda("Nuevo Preoperacional", "Esperando mensaje...");
-		 	$txt .= vpqr($pg);	
-		$txt .= '</div>';	$txt .= '<div class="card-header py-3">';
-		$txt .= '<h6 class="m-0 font-weight-bold text-primary">Gestion Recoleccion</h6>';
-	$txt .= '</div>';	
-	if($dtrec){
-		foreach($dtrec AS $dt){
-			$txt .= '<div class="card border-bottom-warning shadow h-100 py-2" style="max-width: 100rem;">';
-			 	$txt .= '<div class="card-header">';
-			  		$txt .= '<h6 class="m-0 font-weight-bold text-primary">Fecha de la poda: '.$dt['fecini'].'</h6>';
-					$txt .= '<div class="text-center">';
-						$txt .= '<h6 class="m-0 font-weight-bold text-primary">Foto Inicial</h6>';
-						$txt .= '<label><img class="img-fluid" alt="Responsive image" src="'.$dt['fotini'].'"></label>';
-					$txt .= '</div>';
-			  	$txt .= '</div>';
-				$txt .= '<div class="card-body">';
-					$txt .= '<table class="table table-hover">';
-					  $txt .= '<thead>';
-					    $txt .= '<tr>';
-					      $txt .= '<th></th>';
-					      $txt .= '<th></th>';
-					    $txt .= '</tr>';
-					  $txt .= '</thead>';
-					  $txt .= '<tbody>';
-					    $txt .= '<tr>';
-					      $txt .= '<th>Zona</th>';
-					      $txt .= '<td>'.$dt['zon'].'</td>';
-					    $txt .= '</tr>';
-					    $txt .= '<tr>';
-					      $txt .= '<th>Municipio</th>';
-					      $txt .= '<td>'.$dt['mun'].'</td>';
-					    $txt .= '</tr>';
-					    $txt .= '<tr>';
-					      $txt .= '<th>Circuito</th>';
-					      $txt .= '<td>'.$dt['nomcir'].'</td>';
-					    $txt .= '</tr>';
-					    $txt .= '<tr>';
-					      $txt .= '<th>Dirección</th>';
-					      $txt .= '<td>'.$dt['dir'].'</td>';
-					    $txt .= '</tr>';
-					    $txt .= '<tr>';
-
-
-					    $txt .= '<tr>';
-					      $txt .= '<th>Arboles</th>';
-					      $txt .= '<td>'.$dt['arbol'].'</td>';
-					    $txt .= '</tr>';
-					    $txt .= '<tr>';
-
-					    $txt .= '<th>Ubicacion</th>';
-					      $txt .= '<td>';
-							$txt .= '<a target="blank" href="https://www.google.com/maps?ll='.$dt['lat'].','.$dt['lng'].'&z=16&t=m&hl=es-419&gl=US&mapclient=embed&q=4%C2%B051%2731.7%22N+74%C2%B003%2719.1%22W+'.$dt['lat'].'00,+'.$dt['lng'].'@'.$dt['lat'].','.$dt['lng'].'" title="Ir al mapa">';
-							$txt .= '<i class="fas fa-map-marked-alt fa-2x"></i>';
-							$txt .= '</a>';
-					      $txt .= '</td>';
-					    $txt .= '</tr>';
-					  $txt .= '</tbody>';
-					$txt .= '</table>';
-
-				$txt .= '<form name="frm2" action="'.$arc.'?pg='.$pg.'" method="POST" enctype="multipart/form-data">';
-					$txt .= '<input type="hidden" name="idrec" value="'.$dt['idrec'].'">';
-					$txt .= '<label>Foto Final</label>';
-					$txt .= '<input type="file" name="archb" class="form-control" accept="image/jpg, image/jpeg, image/png" required>';
-					$txt .= '<label>NOVEDADES</label>';
-					$txt .= '<textarea type="text" name="novedad" required class="form-control"required>';
-					$txt .= '</textarea>';
-					$txt .= '</div>';
-					$txt .= '<div class="modal-footer">';
-					$txt .= '<input type="hidden" name="estado" value="2">';
-					$txt .= '<input type="hidden" name="opera" value="recolectar">';
-        			$txt .= '<input type="submit" class="btn btn-warning" value="Recolectar OK">';
-				$txt .= '</form>';
-				$txt.= '</div>';
-			$txt.= '</div>';
-			$txt.= 'idrec: '.$dt['idrec'];
-
-		}
-	}
-	$txt.= '</div>';
-	$txt.= subir();
-	echo $txt;
+	$txt .= '<div class="card shadow mb-4">';
+		$txt .= '<div class="card-header py-3">';
+			$txt .= '<h6 class="m-0 font-weight-bold text-danger">Listado de paginas</h6>';
+		$txt .= '</div>';
+	$txt .= '<div class="card-body">';
+	$txt .= '<div class="table-responsive">';
+if ($dtrec){
+		$txt .= '<table id="datatablesSimple">';
+		$txt .= '<thead>';
+			$txt .= '<tr>';
+				$txt .= '<th><i class="fas fa-cog fa-2x"></i></th>';
+				$txt .= '<th>NOMBRE</th>';
+				$txt .= '<th>Archivo</th>';
+				$txt .= '<th>Menu</th>';
+				$txt .= '<th>Icono</th>';
+			$txt .= '</tr>';
+		$txt .= '</thead>';
+		$txt .= '<tfoot>';
+				$txt .= '<th><i class="fas fa-cog fa-2x"></i></th>';
+				$txt .= '<th>NOMBRE</th>';
+				$txt .= '<th>Archivo</th>';
+				$txt .= '<th>Menu</th>';
+				$txt .= '<th>Icono</th>';
+			$txt .= '</tr>';
+		$txt .= '</tfoot>';
+		$txt .= '<tbody>';
+		foreach ($dtrec as $dt){
+			$txt .= '<tr>';
+				$txt .= '<td>'.$dt['idrec'].'</td>';
+				$txt .= '<td>'.$dt['arbol'].'</td>';
+				$txt .= '<td>'.$dt['arbol'].'</td>';
+				$txt .= '<td>'.$dt['arbol'].'</td>';
+				$txt .= '<td>'.$dt['estado'].'</td>';
+			$txt .= '</tr>';
+		}	
+		$txt .= '</tbody>';
+	$txt .= '</table>';
+	$txt .= '</div>';
+$txt .= '</div>';
+$txt .= '</div>';
+}else{
+$txt .= '<h4>No existen datos para mostrar</h4>';
+}
+$txt .= '</div>';
+echo $txt;	
 
 }
 ?>
